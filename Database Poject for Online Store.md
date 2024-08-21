@@ -45,10 +45,9 @@ The tables are connected in the following way:
        - INSERT INTO '<table_name>' <br>
   <br>
    After the INSERT command, I calculated the total sum of orders automatically using the UPDATE command <br>
-      ALTER TABLE Comenzi
-      ADD COLUMN suma_totala DECIMAL(10, 2);
-
-       UPDATE Comenzi c <br>
+      ALTER TABLE Comenzi <br>
+      ADD COLUMN suma_totala DECIMAL(10, 2); <br>
+      UPDATE Comenzi c <br>
         JOIN ( <br>
             SELECT <br>
                id_comanda, <br>
@@ -59,10 +58,9 @@ The tables are connected in the following way:
                id_comanda <br>
         ) dc ON c.id_comanda = dc.id_comanda<br>
         SET c.suma_totala = dc.suma_totala; <br>
-
-  3. DQL (Data Query Language): <br>
-  To simulate a use case from different departments:  <br>
-   - SELECT * FROM AdresaLivrare WHERE oras = 'Pitesti'; - **Display** all fields from AdresaLivrare with destination city Pitesti<br>
+    3. DQL (Data Query Language): <br>
+    To simulate a use case from different departments:  <br>
+   - SELECT * FROM AdresaLivrare WHERE oras = 'Pitesti'; - Display all fields from AdresaLivrare with destination city Pitesti<br>
    - SELECT nume, prenume, telefon  FROM Clienti WHERE prenume LIKE '%a' ORDER BY nume, prenume; - Display all females (generalization where all females have first names ending in the letter 'a')<br>
 <br>
        - JOINS: <br>
@@ -73,7 +71,7 @@ The tables are connected in the following way:
        Comenzi: The table containing information about all orders. <br>
        INNER JOIN: This operation matches records from both tables, Clienti and Comenzi, based on the Clienti.id_client <br>
    <br>
-       **The Business Purpose** of this JOIN: This query is designed to retrieve information about clients who have placed orders with a total amount (`suma_totala`) greater than 100, **in order** to offer a discount **on** their next orders. <br>
+       **The Business Purpose** of this JOIN: This query is designed to retrieve information about clients who have placed orders with a total amount (`suma_totala`) greater than 100, in order to offer a discount on their next orders. <br>
        <br>
        b) LEFT JOIN between Clienti and Comenzi <br>
        Explanation: <br>
