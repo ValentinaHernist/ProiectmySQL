@@ -43,8 +43,6 @@ The tables are connected in the following way:
      2. DML (Data Manipulation Language): <br>
        To perform some queries in the database tables, I populated the tables using the INSERT command <br>
        - INSERT INTO '<table_name>' <br>
-sql
-Copy code
   <br>
    After the INSERT command, I calculated the total sum of orders automatically using the UPDATE command <br>
       ALTER TABLE Comenzi
