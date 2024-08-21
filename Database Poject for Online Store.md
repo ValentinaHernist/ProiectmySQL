@@ -58,6 +58,7 @@ The tables are connected in the following way:
                id_comanda <br>
         ) dc ON c.id_comanda = dc.id_comanda<br>
         SET c.suma_totala = dc.suma_totala; <br>
+    <br>	       
     3. DQL (Data Query Language): <br>
     To simulate a use case from different departments:  <br>
    - SELECT * FROM AdresaLivrare WHERE oras = 'Pitesti'; - Display all fields from AdresaLivrare with destination city Pitesti<br>
