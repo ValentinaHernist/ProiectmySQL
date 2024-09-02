@@ -128,17 +128,17 @@ The scope of this project is to use all the SQL knowledge gained throughout the 
          nume ASC
         LIMIT 10;
 
-       -- Top 5 payment amounts displayed in descending order
-       SELECT
+        -- Top 5 payment amounts displayed in descending order
+        SELECT
          id_comanda,
          numar_comanda,
          suma_totala
-       FROM
-        Comenzi
-       ORDER BY
-        suma_totala DESC
-       LIMIT 5;
-       ```
+        FROM
+         Comenzi
+        ORDER BY
+         suma_totala DESC
+        LIMIT 5;
+        ```
 
       - **ORDER BY:**
       ```sql
