@@ -27,45 +27,52 @@ The tables are connected in the following way:
    <br>
      1. DDL (Data Definition Language): <br>
       The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS): <br>
-      - CREATE DATABASE KissAndMakeup <br>
-      - CREATE TABLE Depozit <br>
-      - CREATE TABLE Produse <br>
-      - CREATE TABLE AdresaFacturare <br>
-      - CREATE TABLE AdresaLivrare <br>
-      - CREATE TABLE Clienti <br>
-      - CREATE TABLE Comenzi <br>
-	  - CREATE TABLE DetaliiProduseComanda <br>
+      '''
+       CREATE DATABASE KissAndMakeup 
+       CREATE TABLE Depozit 
+       CREATE TABLE Produse 
+       CREATE TABLE AdresaFacturare 
+       CREATE TABLE AdresaLivrare 
+       CREATE TABLE Clienti 
+       CREATE TABLE Comenzi 
+       CREATE TABLE DetaliiProduseComanda 
+	'''
 	  After all tables were created, I changed the name of a column in the table Depozit <br>
-      ALTER TABLE Depozit CHANGE tip_impachetare tip_stocare  VARCHAR(100); <br>
+	'''
+      ALTER TABLE Depozit CHANGE tip_impachetare tip_stocare  VARCHAR(100);
+	'''
 	  And added a new field into Produse, the UNIQUE type cod_bare <br>
-	  ALTER TABLE Produse ADD cod_bare VARCHAR(13) UNIQUE; <br>
+	'''
+	  ALTER TABLE Produse ADD cod_bare VARCHAR(13) UNIQUE; 
+	'''
    <br>
      2. DML (Data Manipulation Language): <br>
        To perform some queries in the database tables, I populated the tables using the INSERT command <br>
        - INSERT INTO '<table_name>' <br>
   <br>
    After the INSERT command, I calculated the total sum of orders automatically using the UPDATE command <br>
-      ALTER TABLE Comenzi <br>
-      ADD COLUMN suma_totala DECIMAL(10, 2); <br>
-      UPDATE Comenzi c <br>
-        JOIN ( <br>
-            SELECT <br>
-               id_comanda, <br>
-               SUM(cantitate * pret_unitar) AS suma_totala <br>
-            FROM <br> 
-               DetaliiProduseComanda <br>
-            GROUP BY <br>
-               id_comanda <br>
-        ) dc ON c.id_comanda = dc.id_comanda<br>
-        SET c.suma_totala = dc.suma_totala; <br>
-    <br>	       
+   '''
+      ALTER TABLE Comenzi 
+      ADD COLUMN suma_totala DECIMAL(10, 2); 
+      UPDATE Comenzi c 
+        JOIN ( 
+            SELECT 
+               id_comanda, 
+               SUM(cantitate * pret_unitar) AS suma_totala 
+            FROM 
+               DetaliiProduseComanda 
+            GROUP BY 
+               id_comanda 
+        ) dc ON c.id_comanda = dc.id_comanda
+        SET c.suma_totala = dc.suma_totala; 
+    '''	       
     3. DQL (Data Query Language): <br>
     To simulate a use case from different departments:  <br>
-   - SELECT * FROM AdresaLivrare WHERE oras = 'Pitesti'; - Display all fields from AdresaLivrare with destination city Pitesti<br>
-   - SELECT nume, prenume, telefon  FROM Clienti WHERE prenume LIKE '%a' ORDER BY nume, prenume; - Display all females (generalization where all females have first names ending in the letter 'a')<br>
-<br>
+    '''
+    SELECT * FROM AdresaLivrare WHERE oras = 'Pitesti'; - Display all fields from AdresaLivrare with destination city Pitesti
+    SELECT nume, prenume, telefon  FROM Clienti WHERE prenume LIKE '%a' ORDER BY nume, prenume; - Display all females (generalization where all females have first names ending in the letter 'a')
+    '''
        - JOINS: <br>
-   <br>
        a) INNER JOIN between Clienti and Comenzi <br>
        Explanation: <br>
        Clienti: The table containing information about all online store clients. <br>
