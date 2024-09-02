@@ -27,16 +27,16 @@ The tables are connected in the following way:
    <br>
      1. DDL (Data Definition Language): <br>
       The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS): <br>
-      '''
-       CREATE DATABASE KissAndMakeup 
-       CREATE TABLE Depozit 
-       CREATE TABLE Produse 
-       CREATE TABLE AdresaFacturare 
-       CREATE TABLE AdresaLivrare 
-       CREATE TABLE Clienti 
-       CREATE TABLE Comenzi 
-       CREATE TABLE DetaliiProduseComanda 
-	'''
+'''
+CREATE DATABASE KissAndMakeup 
+CREATE TABLE Depozit 
+CREATE TABLE Produse 
+CREATE TABLE AdresaFacturare 
+CREATE TABLE AdresaLivrare 
+CREATE TABLE Clienti 
+CREATE TABLE Comenzi 
+CREATE TABLE DetaliiProduseComanda 
+'''
 	  After all tables were created, I changed the name of a column in the table Depozit <br>
 	'''
       ALTER TABLE Depozit CHANGE tip_impachetare tip_stocare  VARCHAR(100);
