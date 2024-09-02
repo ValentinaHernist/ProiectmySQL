@@ -122,11 +122,11 @@ The scope of this project is to use all the SQL knowledge gained throughout the 
          nume,
          prenume,
          email
-       FROM
+        FROM
          Clienti
-       ORDER BY
+        ORDER BY
          nume ASC
-       LIMIT 10;
+        LIMIT 10;
 
        -- Top 5 payment amounts displayed in descending order
        SELECT
@@ -154,9 +154,8 @@ The scope of this project is to use all the SQL knowledge gained throughout the 
       ORDER BY
         nume,
         prenume;
-       ```
-
-- **Subqueries**
+      ```
+      - **Subqueries**
 
 4. **Conclusions**
 
