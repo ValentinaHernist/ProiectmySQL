@@ -156,7 +156,22 @@ The scope of this project is to use all the SQL knowledge gained throughout the 
         prenume;
       ```
       - **Subqueries**
+      ```sql
+      ALTER TABLE Comenzi 
+      ADD COLUMN suma_totala DECIMAL(10, 2); 
 
+      UPDATE Comenzi c 
+      JOIN ( 
+          SELECT 
+            id_comanda, 
+            SUM(cantitate * pret_unitar) AS suma_totala 
+          FROM 
+            DetaliiProduseComanda 
+          GROUP BY 
+            id_comanda 
+      ) dc ON c.id_comanda = dc.id_comanda
+      SET c.suma_totala = dc.suma_totala;
+       ```
 4. **Conclusions**
 
    In summary, I’ve developed a robust MySQL database that effectively manages data and ensures seamless operations for all members of the online store. This setup is designed to handle the needs of the online store while being flexible enough to accommodate future growth and changes in the organization.
