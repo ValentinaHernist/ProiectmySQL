@@ -115,10 +115,50 @@ The scope of this project is to use all the SQL knowledge gained throughout the 
         **The Business Purpose** of this JOIN: Obtain statistics about orders and clients for the marketing department.
 
       - **LIMITS:**
-      - **ORDER BY:**
-      - **Subqueries:**
+        ```sql
+        -- First 10 clients ordered by ascending name with display of id, name, surname, email
+        SELECT
+         id_client,
+         nume,
+         prenume,
+         email
+       FROM
+         Clienti
+       ORDER BY
+         nume ASC
+       LIMIT 10;
 
-3. **Conclusions**
+       -- Top 5 payment amounts displayed in descending order
+       SELECT
+         id_comanda,
+         numar_comanda,
+         suma_totala
+       FROM
+        Comenzi
+       ORDER BY
+        suma_totala DESC
+       LIMIT 5;
+       ```
+
+      - **ORDER BY:**
+      ```sql
+      -- Display all females (generalization where all females have first names ending in the letter 'a')
+      SELECT
+       nume,
+       prenume,
+       telefon
+      FROM
+       Clienti
+      WHERE
+        prenume LIKE '%a'
+      ORDER BY
+        nume,
+        prenume;
+       ```
+
+- **Subqueries**
+
+4. **Conclusions**
 
    In summary, I’ve developed a robust MySQL database that effectively manages data and ensures seamless operations for all members of the online store. This setup is designed to handle the needs of the online store while being flexible enough to accommodate future growth and changes in the organization.
 
